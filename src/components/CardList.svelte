@@ -19,7 +19,7 @@
     </div>
     <div class="card-content">
       {#each cards as card}
-        <TodoCard content={card.todo} />
+        <TodoCard content={card.todo} listName={listName} />
       {/each}
       <input type="text" class="input is-primary mb-2" bind:value={todo} />
       <button on:click={addTodo} class="button is-primary">Add</button>
