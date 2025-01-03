@@ -1,5 +1,10 @@
 <script>
   import TodoCard from "./components/TodoCard.svelte";
+  let cards = [
+    "mY Content",
+    "yur Content",
+    "her Content",
+  ]
 </script>
 
 <main class="container is-fluid">
@@ -11,9 +16,9 @@
           <p class="card-header-title">Card</p>
         </div>
         <div class="card-content">
-          <TodoCard content={'mY Content'} />
-          <TodoCard content={'yur Content'} />
-          <TodoCard content={'her Content'} />
+          {#each cards as card}
+            <TodoCard content={card} />
+          {/each}
         </div>
       </div>
     </div>
