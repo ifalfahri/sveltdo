@@ -1,4 +1,5 @@
 <script>
+  import TodoCard from "./components/TodoCard.svelte";
 </script>
 
 <main class="container is-fluid">
@@ -10,21 +11,9 @@
           <p class="card-header-title">Card</p>
         </div>
         <div class="card-content">
-          <div class="card mb-3 has-background-primary-light">
-            <div class="card-content">
-              <p class="has-text-primary-dark">Content</p>
-            </div>
-          </div>
-          <div class="card mb-3 has-background-primary-light">
-            <div class="card-content">
-              <p class="has-text-primary-dark">Content</p>
-            </div>
-          </div>
-          <div class="card mb-3 has-background-primary-light">
-            <div class="card-content">
-              <p class="has-text-primary-dark">Content</p>
-            </div>
-          </div>
+          <TodoCard content={'mY Content'} />
+          <TodoCard content={'yur Content'} />
+          <TodoCard content={'her Content'} />
         </div>
       </div>
     </div>
