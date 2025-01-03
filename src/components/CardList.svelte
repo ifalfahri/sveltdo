@@ -1,6 +1,6 @@
 <script>
     import TodoCard from "./TodoCard.svelte";
-    export let cards
+    export let cards, listName
 
     let todo = ""
 
@@ -12,7 +12,7 @@
 <div class="column is-4">
     <div class="card has-background-light">
       <div class="card-header">
-        <p class="card-header-title">Tasks</p>
+        <p class="card-header-title">{listName}</p>
       </div>
       <div class="card-content">
         {#each cards as card}
