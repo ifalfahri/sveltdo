@@ -1,10 +1,26 @@
 <script>
   import TodoCard from "./components/TodoCard.svelte";
+
   let cards = [
-    "mY Content",
-    "yur Content",
-    "her Content",
+    {
+      todo: "mY Content",
+      list: "Task"
+    },
+    {
+      todo: "yur Content",
+      list: "Task"
+    },
+    {
+      todo: "her Content",
+      list: "Task"
+    },
   ]
+
+  let todo = ""
+
+  function addTodo() {
+    cards = [...cards, { todo, list: "Task"}]
+  }
 </script>
 
 <main class="container is-fluid">
@@ -13,12 +29,14 @@
     <div class="column is-4">
       <div class="card has-background-light">
         <div class="card-header">
-          <p class="card-header-title">Card</p>
+          <p class="card-header-title">Tasks</p>
         </div>
         <div class="card-content">
           {#each cards as card}
-            <TodoCard content={card} />
+            <TodoCard content={card.todo} />
           {/each}
+          <input type="text" class="input is-primary mb-2" bind:value={todo}/>
+          <button on:click={addTodo} class="button is-primary">Add</button>
         </div>
       </div>
     </div>
