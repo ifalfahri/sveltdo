@@ -19,10 +19,15 @@
     const { index, listName } = event.detail;
     dispatch("moveRight", { index, listName });
   }
-    function moveLeft(event) {
-        const { index, listName } = event.detail;
-        dispatch("moveLeft", { index, listName });
+  function moveLeft(event) {
+    const { index, listName } = event.detail;
+    dispatch("moveLeft", { index, listName });
+  }
+  function handleKeydown(event) {
+    if (event.key === 'Enter') {
+      addTodo();
     }
+  }
 </script>
 
 <div class="column is-4">
@@ -41,7 +46,7 @@
           on:moveLeft={moveLeft}
         />
       {/each}
-      <input type="text" class="input is-primary mb-2" bind:value={todo} />
+      <input type="text" class="input is-primary mb-2" bind:value={todo} on:keydown={handleKeydown} />
       <button on:click={addTodo} class="button is-primary">Add</button>
     </div>
   </div>
