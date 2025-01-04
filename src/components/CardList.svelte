@@ -47,7 +47,7 @@
         />
       {/each}
       <input type="text" class="input is-primary mb-2" bind:value={todo} on:keydown={handleKeydown} />
-      <button on:click={addTodo} class="button is-primary">Add</button>
+      <button on:click={addTodo} class="button is-primary has-text-white">Add</button>
     </div>
   </div>
 </div>
