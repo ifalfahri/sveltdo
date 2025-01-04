@@ -15,14 +15,42 @@
       doneCards = [...doneCards, { todo }];
     }
   }
+  function handleEventDeleteTodo(event) {
+    const { index, listName } = event.detail;
+    if (listName === "Tasks") {
+      taskCards.splice(index, 1);
+      taskCards = [...taskCards];
+    } else if (listName === "In Progress") {
+      inProgressCards.splice(index, 1);
+      inProgressCards = [...inProgressCards];
+    } else {
+      doneCards.splice(index, 1);
+      doneCards = [...doneCards];
+    }
+  }
 </script>
 
 <main class="container is-fluid">
   <h1 class="is-size-3">Sveltdo</h1>
   <div class="columns">
-    <CardList cards={taskCards} listName={"Tasks"} on:addTodo={handleEventAddTodo} />
-    <CardList cards={inProgressCards} listName={"In Progress"} on:addTodo={handleEventAddTodo}/>
-    <CardList cards={doneCards} listName={"Done"} on:addTodo={handleEventAddTodo}/>
+    <CardList
+      cards={taskCards}
+      listName={"Tasks"}
+      on:addTodo={handleEventAddTodo}
+      on:deleteTodo={handleEventDeleteTodo}
+    />
+    <CardList
+      cards={inProgressCards}
+      listName={"In Progress"}
+      on:addTodo={handleEventAddTodo}
+      on:deleteTodo={handleEventDeleteTodo}
+    />
+    <CardList
+      cards={doneCards}
+      listName={"Done"}
+      on:addTodo={handleEventAddTodo}
+      on:deleteTodo={handleEventDeleteTodo}
+    />
   </div>
 </main>
 
