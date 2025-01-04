@@ -7,6 +7,12 @@
   function handleDeleteTodo() {
     dispatch("deleteTodo", { index, listName });
   }
+  function handleMoveRight() {
+    dispatch("moveRight", { index, listName });
+  }
+    function handleMoveLeft() {
+        dispatch("moveLeft", { index, listName });
+    }
 </script>
 
 <div class="card mb-3 has-background-primary-light">
@@ -14,7 +20,7 @@
     <div class="columns is-mobile">
       <div class="column is-narrow">
         {#if listName !== "Tasks"}
-          <span class="icon has-text-primary">
+          <span class="icon has-text-primary" on:click={handleMoveLeft}>
             <i class="fa fa-chevron-left"></i>
           </span>
         {/if}
@@ -29,7 +35,7 @@
       </div>
       <div class="column is-narrow">
         {#if listName !== "Done"}
-          <span class="icon has-text-primary">
+          <span class="icon has-text-primary" on:click={handleMoveRight}>
             <i class="fa fa-chevron-right"></i>
           </span>
         {/if}

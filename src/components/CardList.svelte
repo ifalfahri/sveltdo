@@ -9,11 +9,20 @@
 
   function addTodo() {
     dispatch("addTodo", { todo, listName });
+    todo = "";
   }
   function deleteTodo(event) {
     const { index, listName } = event.detail;
     dispatch("deleteTodo", { index, listName });
   }
+  function moveRight(event) {
+    const { index, listName } = event.detail;
+    dispatch("moveRight", { index, listName });
+  }
+    function moveLeft(event) {
+        const { index, listName } = event.detail;
+        dispatch("moveLeft", { index, listName });
+    }
 </script>
 
 <div class="column is-4">
@@ -23,7 +32,14 @@
     </div>
     <div class="card-content">
       {#each cards as card, index}
-        <TodoCard content={card.todo} listName={listName} index={index} on:deleteTodo={deleteTodo} />
+        <TodoCard
+          content={card.todo}
+          {listName}
+          {index}
+          on:deleteTodo={deleteTodo}
+          on:moveRight={moveRight}
+          on:moveLeft={moveLeft}
+        />
       {/each}
       <input type="text" class="input is-primary mb-2" bind:value={todo} />
       <button on:click={addTodo} class="button is-primary">Add</button>
