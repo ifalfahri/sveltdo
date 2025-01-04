@@ -1,5 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
+  import { slide } from "svelte/transition"
   export let content, listName, index;
 
   const dispatch = createEventDispatcher();
@@ -15,7 +16,7 @@
     }
 </script>
 
-<div class="card mb-3 has-background-primary-light">
+<div class="card mb-3 has-background-primary-light" transition:slide>
   <div class="card-content">
     <div class="columns is-mobile">
       <div class="column is-narrow">
